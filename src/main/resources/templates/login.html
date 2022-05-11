@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в аккаунт</title>
+    <link rel="shortcut icon" href="image/cloth.png" type="image/png">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+<div class="header">
+    <!--главная надпись-->
+    <div class="header-text">
+        <a href="/">Clothes Store</a>
+    </div>
+    <!--меню-->
+    <div class="menu">
+        <div class="row">
+            <a sec:authorize="isAnonymous()" href="/login"><img src="image/login.png"></a>
+            <a id="lout" sec:authorize="isAuthenticated()" href="/logout"><img src="image/log-out.png"></a>
+            <a href="profile/cart-product"><img src="image/cart.png"></a>
+        </div>
+    </div>
+</div>
+<form id="form" th:action="@{/login}" method="post">
+        <div id="column-1" class="column">
+        <h2 class="vhod">Вход</h2>
+        </div>
+        <div id="column-2" class="column">
+            <br>
+            <div><label> Логин: <input type="text" class="input" name="username"/> </label></div>
+            <br>
+            <div><label> Пароль: <input type="password" class="input" name="password"/> </label></div>
+            <div><input type="submit" class="submit" value="Войти"/></div>
+            <a href="/registration" id="reg" class="submit">Зарегестрироваться</a>
+        </div>
+</form>
+
+</body>
+</html>

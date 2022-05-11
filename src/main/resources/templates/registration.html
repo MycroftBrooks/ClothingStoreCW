@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="shortcut icon" href="image/cloth.png" type="image/png">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+<div class="header">
+    <!--главная надпись-->
+    <div class="header-text">
+        <a href="/">Clothes Store</a>
+    </div>
+    <!--меню-->
+    <div class="menu">
+        <div class="row">
+            <a sec:authorize="isAnonymous()" href="/login"><img src="image/login.png"></a>
+            <a id="lout" sec:authorize="isAuthenticated()" href="/logout"><img src="image/log-out.png"></a>
+            <a href="profile/cart-product"><img src="image/cart.png"></a>
+        </div>
+    </div>
+</div>
+<div style="color: red" th:text="${error}"></div>
+<form id="form" th:action="@{/registration}" th:method="post" th:object="${user}">
+    <div id="column-1" class="column">
+        <h2 class="vhod">Регистрация</h2>
+    </div>
+    <div id="column-2" class="column">
+        <br>
+        <div><label> Логин: <input type="text" class="input" name="username" th:field="*{username}"/> </label></div>
+        <br>
+        <div><label> Пароль: <input type="password" class="input" name="password" th:field="*{password}"/> </label></div>
+        <div><input  class="submit" type="submit" value="Регистрация"/></div>
+        <a id="reg" class="submit" href="/login">Войти</a>
+    </div>
+</form>
+</body>
+</html>

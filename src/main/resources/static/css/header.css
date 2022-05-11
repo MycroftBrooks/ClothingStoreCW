@@ -1,0 +1,88 @@
+/*НАСТРОЙКА ШАПКИ СТРАНИЦЫ И ФОНА*/
+
+/*шрифты*/
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+@font-face {
+    font-family: Boyarsky;
+    src: url(../fonts/4217.ttf);
+}
+@font-face {
+    font-family: Circe;
+    src: url(../fonts/CirceRegular.ttf);
+}
+
+/*базовые настройки*/
+* { outline: 0; padding: 0; margin: 0; border: 0; }
+html {font-size: 10px;}
+body {box-sizing: border-box; background-color: rgb(245, 245, 245);}
+
+/*АДАПТИВ*/
+
+/*ГЛАВНАЯ СТИЛИЗАЦИЯ*/
+
+/*шапка страницы*/
+.header {
+    /*установка фиксированной позиции*/
+    position: fixed;
+    top: 0;
+    height: 8rem;
+    width: 100%;
+    background: rgb(204, 204, 204);
+    /*применение flex для расположения блоков*/
+    display: flex;
+    justify-content: space-between;
+}
+
+/*расположение элементов по вертикали*/
+.header-text a, .row, .img-list {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+form {
+    display: inline;
+}
+
+/*стилизация ссылок шапки*/
+.header-text a, .row a, .list a {
+    text-decoration: none;
+}
+
+.row a img, #lout img {
+    margin: 0 2rem;
+    width: 5rem;
+    height: 5rem;
+}
+
+/*главная подпись*/
+.header-text {width: 34rem;}
+
+/*стилизация ссылки главной надписи*/
+.header-text a {
+    display: block;
+    padding: 0 4rem;
+    font-size: 3.25rem;
+    color: #000000;
+    letter-spacing: 3px;
+    font-family: 'Suez One', serif;
+}
+
+/*меню*/
+.row {
+    width: 50rem;
+    text-align: center;
+}
+
+
+/*футер*/
+.footer {
+    background-color: rgb(204, 204, 204);
+    height: 3rem;
+    text-align: center;
+}
+
+.footer span {
+    font-family: Circe, sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
